@@ -1,15 +1,14 @@
 const LocalStrategy = require('passport-local').Strategy;
-const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
-module.exports = function(passport) {
-    passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
+module.exports = passport => {
+    passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
         // MATCH USER
-        User.findOne({email: email})
+        User.findOne({ email })
             .then(user => {
                 if (!user) {
-                    return done(null, false, {message: 'No User Found'});
+                    return done(null, false, { message: 'Invalid Authentication' });
                 }
 
                 // MATCH PASSWORD
@@ -19,7 +18,7 @@ module.exports = function(passport) {
                     if (isMatch) {
                         return done(null, user);
                     } else {
-                        return done(null, false, {message: 'Password do not match'});
+                        return done(null, false, { message: 'Invalid Authentication' });
                     }
                 });
             });

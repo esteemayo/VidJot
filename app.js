@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost:27017/vidjot-dev', {
     useNewUrlParser: true
 })
     .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+    .catch(err => console.log(`Could not connect to MongoDB: ${err}`));
 
 // HANDLEBARS MIDDLEWARE
 app.engine('handlebars', exphbs({
@@ -35,7 +35,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 // BODY-PARSER MIDDLEWARE
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // PUBLIC FOLDER
@@ -77,7 +77,7 @@ app.use('/users', userRoute);
 
 app.get('/', (req, res) => {
     let title = 'Welcome';
-    res.render('index', {title});
+    res.render('index', { title });
 });
 
 app.get('/about', (req, res) => {

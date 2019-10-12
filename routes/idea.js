@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const Idea = require('../models/Idea');
-const {ensureAuthenticated} = require('../helpers/auth');
+const { ensureAuthenticated } = require('../helpers/auth');
 
 
 // IDEA INDEX PAGE
 router.get('/', ensureAuthenticated, (req, res) => {
-    Idea.find({user: req.user.id})
-        .sort({date: 'desc'})
+    Idea.find({ user: req.user.id })
+        .sort({ date: 'desc' })
         .then(ideas => {
             res.render('ideas/index', {
-                ideas: ideas
+                ideas
             });
         });
 });
@@ -25,11 +25,11 @@ router.post('/', ensureAuthenticated, (req, res) => {
     let errors = [];
 
     if (!req.body.title) {
-        errors.push({msg: 'Please add a title'});
+        errors.push({ msg: 'Please add a title' });
     }
 
     if (!req.body.details) {
-        errors.push({msg: 'Please add some details'});
+        errors.push({ msg: 'Please add some details' });
     }
 
     if (errors.length > 0) {
@@ -62,7 +62,7 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
                 res.redirect('/ideas');
             } else {
                 res.render('ideas/edit', {
-                    idea: idea
+                    idea
                 });
             }
         });
@@ -87,7 +87,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
 
 // DELETE IDEA
 router.delete('/:id', ensureAuthenticated, (req, res) => {
-    Idea.deleteOne({_id: req.params.id})
+    Idea.deleteOne({ _id: req.params.id })
         .then(() => {
             req.flash('success_msg', 'Video Idea Deleted');
             res.redirect('/ideas');

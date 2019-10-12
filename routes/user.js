@@ -20,15 +20,15 @@ router.post('/register', (req, res) => {
     let errors = [];
 
     if (!name || !email || !password || !password2) {
-        errors.push({text: 'Please all required fields must be filled'});
+        errors.push({ text: 'Please all required fields must be filled' });
     }
 
     if (password !== password2) {
-        errors.push({text: 'Passwords do not match'});
+        errors.push({ text: 'Password do not match' });
     }
 
     if (password.length < 4) {
-        errors.push({text: 'Password must be at least 4 characters'});
+        errors.push({ text: 'Password must be at least 4 characters' });
     }
 
     if (errors.length > 0) {
@@ -39,7 +39,7 @@ router.post('/register', (req, res) => {
             password2
         });
     } else {
-        User.findOne({email: email})
+        User.findOne({ email: email })
             .then(user => {
                 if (user) {
                     req.flash('error_msg', 'Email already registered');
@@ -50,11 +50,11 @@ router.post('/register', (req, res) => {
                         email,
                         password
                     })
-            
+
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
                             if (err) throw err;
-            
+
                             newUser.password = hash;
                             newUser.save()
                                 .then(user => {

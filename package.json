@@ -4,23 +4,28 @@
   "description": "App to create video ideas",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "sample": "node dev-data/data/import-dev-data.js --import",
+    "blowitallaway": "node dev-data/data/import-dev-data.js --delete"
   },
-  "author": "\"Emmanuel Adebayo\"",
+  "author": "Emmanuel Adebayo",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
     "connect-flash": "^0.1.1",
-    "express": "^4.16.4",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "express-handlebars": "^3.0.2",
+    "express-mongo-sanitize": "^2.1.0",
     "express-session": "^1.15.6",
+    "helmet": "^4.6.0",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.19",
+    "mongoose": "^5.13.2",
+    "morgan": "^1.10.0",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.10"
+    "passport-local": "^1.0.0",
+    "xss-clean": "^0.1.1"
   }
 }

@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "5da1d5b526f98f096cda9374",
+    "title": "HTML CRASH COURSE",
+    "details": "A video on HTML5",
+    "user": "5da1d57426f98f096cda9373",
+    "date": "2019-10-12T13:31:33.270Z"
+  },
+  {
+    "_id": "60e011ecef55e33598c2d042",
+    "title": "Create a Movie Watchlist with React Hooks",
+    "details": "Create a Movie Watchlist with React Hooks",
+    "user": "5da1d57426f98f096cda9373",
+    "date": "2021-07-03T07:29:48.486Z"
+  },
+  {
+    "_id": "60e8904cb3fd376ad4a5110a",
+    "title": "CSS 3 Crash Course",
+    "details": "A video on CSS 3 basics",
+    "user": "60e88c1d57b51e4320272c1a",
+    "date": "2021-07-09T18:07:08.985Z"
+  }
+]

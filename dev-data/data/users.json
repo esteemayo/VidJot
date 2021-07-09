@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "5da1d57426f98f096cda9373",
+    "name": "John Doe",
+    "email": "jdoe@example.com",
+    "password": "$2a$12$iUVZc2X0U.w8SUkdB/P./ucl5aqEA7hs1.92KZ8zMwlD04qbx3xui",
+    "date": "2019-10-12T13:30:28.371Z"
+  },
+  {
+    "_id": "60e5a3fe7b63094090348f20",
+    "name": "Sophie Louise Hart",
+    "email": "sophie@example.com",
+    "password": "$2a$10$fbcUggQBSXDLh.G6G98FUOtM4P9SD997ezHRTYRGzUUOm7C2u4Pyq",
+    "date": "2021-07-07T12:54:22.880Z"
+  },
+  {
+    "_id": "60e88c1d57b51e4320272c1a",
+    "name": "Mary Doe",
+    "email": "mdoe@example.com",
+    "password": "$2a$10$hvoGL6iXy2Vaa/qUjELJHOzkHMITjmYuDSNpu1T7mJr7xXzeexwtG",
+    "date": "2021-07-09T17:49:17.682Z"
+  }
+]
